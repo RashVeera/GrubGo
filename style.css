@@ -1,0 +1,81 @@
+.header-container{
+    display: flex;
+    height: 50px;
+    border-bottom: 1px solid lightgray;
+    justify-content: space-between;
+    padding: 5px;
+    position: sticky;
+
+}
+
+.search-container{
+    padding: 1rem;
+}
+
+
+
+.res-container{
+    margin-top: 2rem;
+    margin-left: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.card-logo{
+    width: 15rem;
+    height: 10rem;
+    border-radius: 5%;
+    border: 1.5px solid lightgray;
+}
+
+.res-card{
+    width:300px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.res-card:hover{
+    transform: scale(0.9);
+}
+
+.infoCardContent{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.3rem;
+    margin-left: 0.6rem;
+}
+
+.title-name{
+    font-weight: bold;
+    font-size: large;
+    padding: 1px;
+}
+
+.area-Name,.cuisines-Name{
+    font-size: small;
+    font-family: system-ui;
+    color: gray;
+
+}
+
+.deliverytime{
+    padding: 1px;
+    font-weight: bold;
+}
+.logo{
+    border-radius: 50%;
+}
+
+.links{
+    display: flex;
+    list-style-type: none;
+    margin: 1px;
+}
+
+.links>li{
+    margin-left: 20px;
+    align-self: center;
+}
