@@ -37,6 +37,12 @@
 }
 
 
+.button-top{
+    padding: 4px;
+    background-color: black;
+    color: white;
+}
+
 .res-card:hover{
     transform: scale(0.9);
 }

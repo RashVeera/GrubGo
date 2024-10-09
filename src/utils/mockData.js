@@ -12,9 +12,9 @@ const restaurant_list =   [
           "Fast Food",
           "Rolls & Wraps"
         ],
-        "avgRating": 4.3,
+        "avgRating": 3.9,
         "parentId": "547",
-        "avgRatingString": "4.3",
+        "avgRatingString": "3.9",
         "totalRatingsString": "23K+",
         "sla": {
           "deliveryTime": 18,
