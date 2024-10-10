@@ -8,6 +8,34 @@
 
 }
 
+.Loginbtn{
+    padding: 3px 3px;
+    height: fit-content;
+    background-color: black;
+    color: white;
+    border-radius: 10%;
+}
+
+
+.shimmer-card{
+    width:250px;
+    height:150px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(241, 238, 238);
+    border-radius: 5%;
+
+}
+
+.shimmer-container{
+    margin-top: 5rem;
+    margin-left: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem 4rem;
+}
+
 .search-container{
     padding: 1rem;
 }
@@ -81,7 +109,7 @@
     margin: 1px;
 }
 
-.links>li{
+.links>li,.links>button{
     margin-left: 20px;
     align-self: center;
 }
