@@ -4,7 +4,43 @@
     border-bottom: 1px solid lightgray;
     justify-content: space-between;
     padding: 5px;
-    position: sticky;
+    top: 0px; /* This sets the top position for sticky */
+    position: sticky; /* This enables the sticky behavior */
+    background-color: white; /* Ensure the background color is set */
+    z-index: 1000; 
+}
+
+.footer-container{
+    background-color: rgb(240, 240, 245);
+    width: 100%;
+    height: 200px;
+    margin-top: 3rem;
+}
+
+.footer-container>.first-component{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    /* margin-top: 3rem */
+}
+.footer-container>.socialLinks{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 50px;
+    gap: 1rem;
+}
+
+.footer-container>.socialLinks>img{
+    width: 20px;
+    align-self: center;
+    height: 20px;
+}
+
+.footer-container>.first-component>img{
+    width: 200px;
+    height: 70px;
 
 }
 
@@ -38,13 +74,15 @@
 
 .search-container{
     padding: 1rem;
+    display: flex;
+    gap:0.2rem;
 }
 
 
 
 .res-container{
     margin-top: 2rem;
-    margin-left: 4rem;
+    margin-left: 8rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -64,9 +102,49 @@
     flex-direction: column;
 }
 
+/* .carouseldailycontainer{
+    width: 100px;
+    height: 100px;
+} */
+
+.header-carousel,.top-restaurant-carousel{
+    display: flex;
+    justify-content: space-between;
+}
+
+.redirect-buttons{
+    align-self: center;
+}
+
+.whole-carousel-container,.top-restaurant-container{
+    margin-left: 8rem;
+    width:80%;
+}
+
+.lineBreaks{
+    width: 82%;
+    margin-top: 2rem;
+}
+
+.carouselimage{
+    width:150px;
+    height: 200px;
+}
+
+.carouselimage:hover{
+    cursor: pointer;
+}
+
+.carousel-container,.toprest-container{
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap:1rem;
+    overflow-x: scroll;
+}
 
 .button-top{
     padding: 4px;
+    margin-left: 30px;
     background-color: black;
     color: white;
 }
