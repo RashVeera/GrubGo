@@ -35,25 +35,29 @@ const Body=()=>{
     
     return ResList.length===0  ?  (<Loading/> ) :  (
         <>
-        <div className='body-container'>
-            <div className='search-container'>
-            <input type='search' value={searchText} onChange={(e)=>setsearchText(e.target.value)}/>
-            <button className="search" onClick={()=>{
+        <div className=''>
+            <div className='flex gap-3 m-3 justify-center'>
+            <input type='search' className="border border-black border-solid rounded-md px-1" value={searchText} onChange={(e)=>setsearchText(e.target.value)}/>
+            <button className=" px-4 py-1 border border-solid border-orange-800 bg-orange-500 text-white rounded-sm mr-10" onClick={()=>{
                 {
                     const filteredList=OriginalRestaurantList.filter((restaurant)=>restaurant.info.name.toLowerCase().includes(searchText.toLowerCase()) )
                     SetResList(filteredList);
                 }
             }}>Search</button>
-            <button className="button-top" onClick={()=>
-                {const filteredList=OriginalRestaurantList.filter((rescards)=>rescards.info.avgRating >4.3 )
+            <button className=" px-4 py-1 border border-solid border-orange-800 bg-orange-500 text-white rounded-sm" onClick={()=>
+                {const filteredList=OriginalRestaurantList.filter((rescards)=>rescards.info.avgRating >4.1 )
                     SetResList(filteredList)
                 }
 
-            }>Top Rated Restaurants</button>
+            }>{"Top Rated Restaurants >>"}</button>
             </div>
-            <CarouselContainer CarouselTopprops={CarouselTop} />
+            <div>
+            <CarouselContainer  CarouselTopprops={CarouselTop} />
+            </div>
             <LineBreaks/>
-            <TopRestaurantList TopRestaurant={TopRestaurant}/>
+            <div>
+            <TopRestaurantList className="" TopRestaurant={TopRestaurant}/>
+            </div>
             <LineBreaks/>
             <RestaurantContainer ResList={ResList}/>
 

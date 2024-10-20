@@ -8,10 +8,10 @@ const Header=()=>{
     const isOnline=useOnlineStatus();
     return (
         <>
-        <div className='header-container'>
-            <Link to="/"><img className='logo' src={LOGO_URL} /></Link>
-            <ul className='links'>
-                <li>Online Staus: {isOnline?"🟢":"🔴"}</li>
+        <div className='flex justify-between mb-5 sticky top-0 z-50 bg-white px-3 shadow-md '>
+            <Link to="/"><img className='py-2 w-16 rounded-full' src={LOGO_URL} /></Link>
+            <ul className='flex gap-6 items-center'>
+                <li>Online Status: {isOnline?"🟢":"🔴"}</li>
                 <li><Link to="/">Home</Link></li>
                <li> <Link to="/about">About Us</Link></li>
                <li> <Link to="/grocery">Grocery</Link></li>
