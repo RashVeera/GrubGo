@@ -3,7 +3,7 @@ import RestaurantCard from './RestaurantCard';
 import { Link } from 'react-router-dom';
 
 const RestaurantContainer = ({ResList}) => {
-    console.log(ResList,"from Restaurant Container")
+    // console.log(ResList,"from Restaurant Container")
   return (
     <div className='res-container'>
     { ResList.map((restaurant)=>(
