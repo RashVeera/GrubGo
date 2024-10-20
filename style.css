@@ -10,6 +10,23 @@
     z-index: 1000; 
 }
 
+.offline-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3.5rem;
+    color: lightslategrey;
+}
+
+.image-offline{
+    width: 40%;
+    height: 10%;
+    /* margin-left: 8rem;
+    margin-top: 3rem; */
+}
+
 .menu-item-card-info{
     display: flex;
     flex-direction: column;
