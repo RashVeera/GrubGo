@@ -8,7 +8,9 @@ const useRestaurantMenu =(resId)=>{
         const data=await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.035713261544618&lng=80.19712787121533&restaurantId="+resId+"&catalog_qa=undefined");
         const json=await data.json();
         const ResInfo=json.data.cards[2].card.card.info
-        const Groupcard=json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2]
+        const Groupcard=json.data.cards[4].groupedCard.cardGroupMap.REGULAR
+        // console.log(json.data.cards[4].groupedCard.cardGroupMap.REGULAR)
+
         setRestaurantInfo(ResInfo)
         setGroupedCarddetails(Groupcard)
 
