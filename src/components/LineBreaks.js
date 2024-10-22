@@ -2,7 +2,7 @@ import React from 'react'
 
 const LineBreaks = () => {
   return (
-    <hr className="lineBreaks"></hr>
+    <hr className="w-5/6 ml-40"></hr>
 )
 }
 
