@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Loading from "./Loading";
 import CarouselContainer from "./CarouselContainer";
 import TopRestaurantList from "./TopRestaurantList";
 import LineBreaks from "./LineBreaks";
 import RestaurantContainer from "./RestaurantContainer";
+import UserContext from "../utils/UserContext";
 
 const Body=()=>{
     const [ResList,SetResList]=useState([]);
@@ -11,6 +12,7 @@ const Body=()=>{
     const [CarouselTop,setCarouselTop]=useState("");
     const [searchText,setsearchText]=useState("");
     const[TopRestaurant,setTopRestaurant]=useState([]);
+    const {loggedInUser,setuserName}=useContext(UserContext)
     useEffect(()=>{
         fetchData();
     },[]);
@@ -57,6 +59,9 @@ const Body=()=>{
                 }
 
             }>{"Top Rated Restaurants >>"}</button>
+                       <label>Username:</label> 
+            <input type='search' className="border border-black border-solid rounded-md px-1" value={loggedInUser} onChange={(e)=>setuserName(e.target.value)}/>
+
             </div>
 
             <RestaurantContainer ResList={ResList}/>

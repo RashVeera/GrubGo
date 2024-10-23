@@ -5,15 +5,14 @@ import Loading from './Loading'
 import MenuItem from './MenuItem'
 import useRestaurantMenu from "../utils/useRestaurantMenu"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import downarrow from "../assets/images/downarrow.png"
-import uparrow from "../assets/images/uparrow.png"
+import RestaurantCategory from './RestaurantCategory'
 
 
 
 const RestaurantCardMenu = () => {
     const {resId}=useParams()
     const [RestaurantInfo,GroupedCarddetails]=useRestaurantMenu(resId);
-    const [show,setShow]=useState(false)
+    const [showIndex,setshowIndex]=useState(0)
 
     if (Object.keys(RestaurantInfo).length===0 || Object.keys(GroupedCarddetails).length===0){
        return <Loading/>
@@ -22,9 +21,7 @@ const RestaurantCardMenu = () => {
     const {name,avgRating,costForTwoMessage,cuisines,areaName}=RestaurantInfo;
     // const {title}=GroupedCarddetails.card.card
     // const {itemCards}=GroupedCarddetails.card.card
-    const toggleaccordion =()=>{
-      setShow(!show)
-    }
+
   return (
     
     <div className='w-6/12 ml-96 mt-14'>
@@ -37,24 +34,14 @@ const RestaurantCardMenu = () => {
       </div>
     {/* {console.log(GroupedCarddetails)} */}
     {
-      categories.map((groupedcategory)=>{
+      categories.map((groupedcategory,index)=>{
         return (
-          <div className=' mb-5'>
-            <div className='flex justify-between cursor-pointer' onClick={()=>{
-              toggleaccordion()
-            }}>
-              <h1 className='font-bold text-xl my-3'>{groupedcategory.card.card.title} ({groupedcategory.card.card.itemCards.length})</h1>
-              <img className='z-20 h-5 w-5 self-center mr-7 rounded-full' src={show?uparrow:downarrow}/>
-              </div>
-    {show && groupedcategory.card.card.itemCards.map((menuitem)=>{
-        return   <MenuItem key={menuitem.card.info.id} menuitem={menuitem} />
-        
-        
-    })
-    }
-
-    <div className='bg-gray-100 h-5 mt-1 w-full'></div>
-          </div>
+         <RestaurantCategory 
+         groupedcategory={groupedcategory}
+         show={showIndex==index && true}
+         showItems={()=>{setshowIndex(index)}}
+         collapse={()=>setshowIndex(null)}
+         />
         )
       })
     }
