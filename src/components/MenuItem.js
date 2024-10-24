@@ -1,7 +1,13 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { Additems } from '../utils/CartSlice';
 
 const MenuItem = ({menuitem}) => {
   const {name,defaultPrice,finalPrice,price,ratings,description,imageId}=menuitem.card.info;
+  const dispatch=useDispatch()
+  const handleAddItems= (menuitem)=>{
+    dispatch(Additems(menuitem))
+  }
   return (
     <div className=''>
                 <hr/>
@@ -16,7 +22,7 @@ const MenuItem = ({menuitem}) => {
     </div>
     <div className='relative'>
     <img className='w-40 h-36 rounded-xl ' src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/"+imageId}/>
-    <button className='absolute bg-white top-28 px-3 py-2 border border-green-400 text-green-500 text-lg font-bold w-28 ml-6 rounded-md'>ADD</button>
+    <button onClick={()=>handleAddItems(menuitem)} className='absolute bg-white top-28 px-3 py-2 border border-green-400 text-green-500 text-lg font-bold w-28 ml-6 rounded-md'>ADD</button>
     </div>
     </div>
         </div>

@@ -12,6 +12,10 @@ import useOnlineStatus from './utils/useOnlinestatus';
 import OfflineContent from './components/OfflineContent';
 import Loading from './components/Loading';
 import UserContext from './utils/UserContext';
+import { Provider } from 'react-redux';
+import AppStore from './utils/AppStore';
+import CartPage from './components/CartPage';
+import PaymentPage from './components/PaymentPage';
 // import Grocery from './components/Grocery';
 
 const root=ReactDOM.createRoot(document.getElementById("root"));
@@ -45,6 +49,7 @@ if ('service-worker' in navigator) {
     setuserName(data.name)
   },[])
   return (
+    <Provider store={AppStore}>
     <UserContext.Provider value={{loggedInUser:userName,setuserName}}>
     <div className='app-container'>
         <Header></Header>
@@ -52,6 +57,7 @@ if ('service-worker' in navigator) {
         <Footer></Footer>
     </div>
    </UserContext.Provider>
+   </Provider>
   )
 }
 
@@ -81,6 +87,14 @@ const appRouter=createBrowserRouter([
       {
         path:"/grocery",
         element:<Suspense fallback={<Loading/>}><Grocery/></Suspense>
+      },
+      {
+        path:"/cart",
+        element:<CartPage></CartPage>
+      },
+      {
+        path:"/payment",
+        element:<PaymentPage></PaymentPage>
       }
     ],
 }
