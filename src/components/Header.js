@@ -10,6 +10,7 @@ const Header=()=>{
     const isOnline=useOnlineStatus();
     const {loggedInUser}=useContext(UserContext)
     const cart=useSelector((store)=>store.cart.items)
+    console.log(cart)
     return (
         <>
         <div className='flex justify-between mb-5 sticky top-0 z-[100] bg-white px-3 shadow-md '>
@@ -20,7 +21,7 @@ const Header=()=>{
                <li> <Link to="/about">About Us</Link></li>
                <li> <Link to="/grocery">Grocery</Link></li>
                 <li><Link to="/contact">Contact Us</Link></li>  
-                <span className="font-bold text-xl">Cart {cart.length}</span>
+                <Link to="/cart"><span className=" hover:text-green-500"> <span className="bg-orange-600 text-white font-bold hover:bg-green-500 py-1 px-2 rounded-lg">{cart.length}</span> Cart</span></Link>
                 <button onClick={()=>{
                 btnName==="Login"?setbtnName("Logout"):setbtnName("Login")
                 }} className="Loginbtn">{btnName}</button>
