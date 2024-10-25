@@ -36,7 +36,7 @@ const CartPage = () => {
     <span>To Pay</span>
     <span>Rs. {price}</span>
     </div>
-    <Link to="/payment"><button className='ml-48 border border-solid border-orange-800 bg-orange-500  rounded-sm px-4 py-2 font-bold  text-white'>Proceed to Payment</button></Link>
+    <Link to="/payment"><button onClick={cleartheCart} className='ml-48 border border-solid border-orange-800 bg-orange-500  rounded-sm px-4 py-2 font-bold  text-white'>Proceed to Payment</button></Link>
     </>
     ):
     (
