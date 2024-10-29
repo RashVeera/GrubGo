@@ -5,7 +5,7 @@ const RestaurantCard=(props)=>{
     const {name,cloudinaryImageId,areaName,cuisines,avgRating,sla}=restaurantData.info
     return (
         <>
-            <div className='w-56 h-72 ml-14 hover:scale-[0.9] relative'>
+            <div data-testid="rescards" className='w-56 h-72 ml-14 hover:scale-[0.9] relative'>
                 {/* Image Container */}
                 <div className="relative">
                     <img 

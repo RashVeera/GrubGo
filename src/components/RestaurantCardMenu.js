@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 import Loading from './Loading'
 import MenuItem from './MenuItem'
 import useRestaurantMenu from "../utils/useRestaurantMenu"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import RestaurantCategory from './RestaurantCategory'
 
 
