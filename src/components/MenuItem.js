@@ -12,7 +12,7 @@ const MenuItem = ({menuitem}) => {
     <div className=''>
                 <hr/>
 
-    <div className='flex items-center my-7 py-2 gap-2 justify-between'>    
+    <div data-testid="foodItems" className='flex items-center my-7 py-2 gap-2 justify-between'>    
     
     <div className='flex flex-col  w-4/6 '>
         <span className='font-bold text-slate-600 text-lg'>{name}</span>
