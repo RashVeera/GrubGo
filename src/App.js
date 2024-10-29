@@ -1,4 +1,4 @@
-import React, { Children, lazy, Suspense } from 'react'
+import React, { Children, lazy, Suspense, useContext, useEffect,useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './components/Header';
 import Body from './components/Body'
@@ -7,11 +7,15 @@ import { createBrowserRouter,RouterProvider,Outlet  } from 'react-router-dom';
 import About from './components/About';
 import Error from './components/Error';
 import Contact from './components/Contact';
-// import RestaurantCardMenu from './components/RestaurantCardMenu';
 import ContactClass from './components/ContactClass';
 import useOnlineStatus from './utils/useOnlinestatus';
 import OfflineContent from './components/OfflineContent';
 import Loading from './components/Loading';
+import UserContext from './utils/UserContext';
+import { Provider } from 'react-redux';
+import AppStore from './utils/AppStore';
+import CartPage from './components/CartPage';
+import PaymentPage from './components/PaymentPage';
 // import Grocery from './components/Grocery';
 
 const root=ReactDOM.createRoot(document.getElementById("root"));
@@ -31,15 +35,29 @@ if ('service-worker' in navigator) {
   });
   }
   const onlinemode=useOnlineStatus();
+  const {loggedInUser}=useContext(UserContext)
+  console.log(loggedInUser)
+  const [userName,setuserName]=useState("")
   if(!onlinemode){
     return <OfflineContent/>
   }
+
+  useEffect(()=>{
+    const data={
+      name:"Rashika Veera"
+    }
+    setuserName(data.name)
+  },[])
   return (
+    <Provider store={AppStore}>
+    <UserContext.Provider value={{loggedInUser:userName,setuserName}}>
     <div className='app-container'>
         <Header></Header>
         <Outlet></Outlet>
         <Footer></Footer>
     </div>
+   </UserContext.Provider>
+   </Provider>
   )
 }
 
@@ -69,6 +87,14 @@ const appRouter=createBrowserRouter([
       {
         path:"/grocery",
         element:<Suspense fallback={<Loading/>}><Grocery/></Suspense>
+      },
+      {
+        path:"/cart",
+        element:<CartPage></CartPage>
+      },
+      {
+        path:"/payment",
+        element:<PaymentPage></PaymentPage>
       }
     ],
 }

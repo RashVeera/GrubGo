@@ -4,19 +4,22 @@ import { useParams } from 'react-router-dom'
 import Loading from './Loading'
 import MenuItem from './MenuItem'
 import useRestaurantMenu from "../utils/useRestaurantMenu"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import RestaurantCategory from './RestaurantCategory'
+
 
 
 const RestaurantCardMenu = () => {
     const {resId}=useParams()
     const [RestaurantInfo,GroupedCarddetails]=useRestaurantMenu(resId);
+    const [showIndex,setshowIndex]=useState(0)
 
     if (Object.keys(RestaurantInfo).length===0 || Object.keys(GroupedCarddetails).length===0){
        return <Loading/>
     }
+    const categories=GroupedCarddetails.cards.filter(category=>category.card.card["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
     const {name,avgRating,costForTwoMessage,cuisines,areaName}=RestaurantInfo;
-    const {title}=GroupedCarddetails.card.card
-    const {itemCards}=GroupedCarddetails.card.card
+    // const {title}=GroupedCarddetails.card.card
+    // const {itemCards}=GroupedCarddetails.card.card
 
   return (
     
@@ -29,11 +32,19 @@ const RestaurantCardMenu = () => {
     <span className='text-gray-600  text-sm'> <span className='font-semibold text-black'>Outlet</span> {areaName}</span>
       </div>
     {/* {console.log(GroupedCarddetails)} */}
-    <h1 className='font-bold text-2xl my-3'>{title}</h1>
-    {itemCards.map((menuitem)=>{
-        return  <MenuItem key={menuitem.card.info.id} menuitem={menuitem} />
-    })
+    {
+      categories.map((groupedcategory,index)=>{
+        return (
+         <RestaurantCategory 
+         groupedcategory={groupedcategory}
+         show={showIndex==index && true}
+         showItems={()=>{setshowIndex(index)}}
+         collapse={()=>setshowIndex(null)}
+         />
+        )
+      })
     }
+
     </div>
   )
 }

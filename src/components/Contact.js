@@ -1,29 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import User from './User'
-import UserClass from './UserClass'
-import useOnlineStatus from '../utils/useOnlinestatus'
+import React from 'react'
 
 const Contact = () => {
-  const [UserInfo,setUserInfo]=useState({});
-  const onlinemode=useOnlineStatus();
-  if(!onlinemode){
-    return <OfflineContent/>
-  }
-  const fetchapi = async ()=>{
-    const data = await fetch("https://api.github.com/users/rashika-veera");
-    const json = await data.json();
-    setUserInfo(json);
-    // console.log(UserInfo);
-  }
-  useEffect(()=>{
-    fetchapi()
-  },[])
   return (
-    <>
-    <div>Contact</div>
-    {/* <User name="Rashika Fn" location="Chennai"/> */}
-    <UserClass name={UserInfo.name} location={UserInfo.location}/>
-    </>
+    <div className='h-96 mt-14'>
+      <form >
+        <div className='flex flex-col gap-3 justify-center items-center w-1/4 border border-black bg-slate-300 p-6 ml-[550px]  '>
+        <h1 className='text-orange-500 font-semibold'>Contact Us</h1>
+
+      <div><span className='text-orange-500 font-semibold'>Name</span> <input type='name' placeholder='name' className='border p-1 border-black ml-5 rounded-sm'/></div>
+      <div ><span  className='text-orange-500 font-semibold'>Message </span><input type='message' className='border border-black p-1 ml-1  rounded-sm' placeholder='message' /></div>
+      <button type='submit' className='border border-black p-1 rounded-sm w-28 bg-orange-600 text-white' >Submit</button>
+      </div>
+      </form>
+    </div>
   )
 }
 
