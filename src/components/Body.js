@@ -5,6 +5,7 @@ import TopRestaurantList from "./TopRestaurantList";
 import LineBreaks from "./LineBreaks";
 import RestaurantContainer from "./RestaurantContainer";
 import UserContext from "../utils/UserContext";
+import { SWIGGY_URL } from "../utils/constants";
 
 const Body=()=>{
     const [ResList,SetResList]=useState([]);
@@ -20,7 +21,9 @@ const Body=()=>{
   
 
     const fetchData = async () =>{
-        const api = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.035713261544618&lng=80.19712787121533&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const api = await fetch(SWIGGY_URL);
+        console.log(api)
+
         const data= await api.json();
         const carouselHeader=data.data.cards[0].card.card;
         const restaurant_data=data?.data?.cards[4].card.card.gridElements.infoWithStyle.restaurants;

@@ -19,7 +19,7 @@ const TopRestaurantList = ({TopRestaurant}) => {
                     }}>{" > "}</button>
                     </div> */}
             </div>
-            <div className=' mt-6 flex flex-shrink-0 overflow-x-scroll gap-2 overflow-y-hidden'>
+            <div className=' mt-6 flex flex-shrink-0 overflow-x-auto no-scrollbar gap-2 overflow-y-hidden'>
                 { TopRestaurant.gridElements.infoWithStyle.restaurants.map((restaurant)=>{
                     return   <Link  key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}> 
                     

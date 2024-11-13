@@ -1,5 +1,6 @@
 import React from "react";
 import UserClass from "./UserClass";
+import { GITHUB_API } from "../utils/constants";
 
 class ContactClass extends React.Component{
     constructor(){
@@ -10,7 +11,7 @@ class ContactClass extends React.Component{
         }
     }
     async componentDidMount(){
-        const data = await fetch("https://api.github.com/users/rashika-veera");
+        const data = await fetch(GITHUB_API);
         const json = await data.json();
         this.setState({
             name:json.name,

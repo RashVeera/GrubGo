@@ -31,9 +31,12 @@ const RestaurantCard=(props)=>{
 
 export const WithOfferDetails =(RestaurantCard)=>{
     return (props)=>{
-        // console.log(props)
+        const header=(props.restaurantData.info.aggregatedDiscountInfoV3.header===undefined?'':props.restaurantData.info.aggregatedDiscountInfoV3.header)
+        const subheader=(props.restaurantData.info.aggregatedDiscountInfoV3.subHeader===undefined?'':props.restaurantData.info.aggregatedDiscountInfoV3.subHeader)
+        
+        console.log(props)
         return (<div className="relative">
-        <span className="ml-[90] absolute top-[130px] z-50 text-white font-bold text-lg -left-4">{props.restaurantData.info.aggregatedDiscountInfoV3.header+" "+props.restaurantData.info.aggregatedDiscountInfoV3.subHeader}</span>
+        <span className="ml-[90] absolute top-[130px] z-50 text-white font-bold text-lg -left-4">{header +" "+subheader}</span>
 
         <RestaurantCard {...props}/>
         </div>)

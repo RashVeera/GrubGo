@@ -18,7 +18,7 @@ const CarouselContainer = ({CarouselTopprops}) => {
         </div>
 
     </div>
-    <div className='mb-9 w-5/6 flex flex-shrink-0 overflow-x-scroll ml-40 gap-2 overflow-y-hidden'>
+    <div className='mb-9 w-5/6 flex flex-shrink-0 overflow-x-auto no-scrollbar  ml-40 gap-2 overflow-y-hidden'>
             { CarouselTopprops.imageGridCards.info.map((carousel)=>{
                 return <CarouselDaily key={carousel.id} carouselitem={carousel}  />
                 })}

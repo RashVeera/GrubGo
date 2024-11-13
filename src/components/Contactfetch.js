@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import User from './User'
 import UserClass from './UserClass'
 import useOnlineStatus from '../utils/useOnlinestatus'
+import { GITHUB_API } from '../utils/constants'
 
 const Contact = () => {
   const [UserInfo,setUserInfo]=useState({});
@@ -10,7 +11,7 @@ const Contact = () => {
     return <OfflineContent/>
   }
   const fetchapi = async ()=>{
-    const data = await fetch("https://api.github.com/users/rashika-veera");
+    const data = await fetch(GITHUB_API);
     const json = await data.json();
     setUserInfo(json);
     // console.log(UserInfo);
